@@ -31,7 +31,7 @@ function Header() {
                 <Link>
                     <p>Login</p>
                 </Link>
-                <Link>
+                <Link to={'/register'}>
                     <p>Register</p>
                 </Link>
             </div>
@@ -101,6 +101,12 @@ function Header() {
                                     </Link>
                                     <Link>
                                         <span className='text-[#a3258e] text-[20px] font-medium'>FAQs</span>
+                                    </Link>
+                                    <Link>
+                                        <span className='text-[#a3258e] text-[20px] font-medium'>Login</span>
+                                    </Link>
+                                    <Link to={'/register'}>
+                                        <span className='text-[#a3258e] text-[20px] font-medium'>Register</span>
                                     </Link>
                                 </div>
                             </nav>
