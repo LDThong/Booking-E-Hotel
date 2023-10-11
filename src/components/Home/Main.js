@@ -50,7 +50,7 @@ function Main() {
                 </div>
             </div>
         </div>
-        <div className='lg:w-[1300px] lg:mx-auto lg:pb-[100px]
+        <div className='lg:w-[1300px] lg:mx-auto lg:pb-[100px] 
             max-sm:px-[15px]
             sm:max-lg:px-[25px]'>
             <div className='flex lg:items-cneter lg:mt-[40px] lg:pb-[100px]
@@ -73,11 +73,11 @@ function Main() {
                 </div>
             </div>
 
-            <div className='lg:flex lg:pb-[100px]'>
+            <div className='lg:flex lg:pb-[100px] '>
                 <div className='lg:w-[100%] lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-[45px]
                     relative max-sm:after:absolute max-sm:after:content-[""] max-sm:after:translate-x-[-50%] max-sm:after:z-[-100]
                     max-sm:after:h-[1px] max-sm:after:border-b-[1px] max-sm:after:border-dotted max-sm:after:border-[#a3258e99] max-sm:after:left-[50%] max-sm:after:w-[60%]'>
-                    <div className='lg:p-[10px_0_10px_0]'>
+                    <div className='lg:p-[10px_0_10px_0] z-[-100]'>
                         <h1 className='text-[#A3258E] lg:text-[45px] font-serif font-bold lg:pb-[10px]
                             max-sm:text-[20px] max-sm:text-center max-sm:p-[10px_0_20px_0]'>
                         OUR ROOMS</h1>
