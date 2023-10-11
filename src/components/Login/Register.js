@@ -189,7 +189,7 @@ function Register() {
                         SIGN UP
                     </button>
                     <span className='lg:hidden max-sm:block sm:max-lg:hidden font-medium text-[#BDBBBC]'>
-                        Already have account? <Link className='text-[#6553FC]'>Sign In</Link>
+                        Already have account? <Link to={'/login'} className='text-[#6553FC]'>Sign In</Link>
                     </span>
                 </div>
             </div>
