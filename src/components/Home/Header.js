@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {FaBars, FaXmark} from 'react-icons/fa6';
 import {FiChevronDown} from 'react-icons/fi';
 
-function Header() {
+function Header({user, handleLogout}) {
     const [translateX, setTranslateX] = useState("translate-x-[-110%]");
     const [bars, setBars] = useState("block");
     const [xB, setXB] = useState("hidden");
+    
 
     const onNav = () => {
         setXB("block");
@@ -20,20 +21,38 @@ function Header() {
         setTranslateX("translate-x-[-110%]");
     }
 
+    // const handleLogout = () =>{
+    //     window.localStorage.removeItem('user')
+    //     setUser(null)
+    // }
+
+    
+
     const faBars = ` ${bars} text-[28px] font-bold text-[#646464]`;
     const xBars = ` ${xB} text-[28px] font-bold text-[#646464]`
     const navBars = ` ${translateX} absolute origin-[0%_50%] transition-transform duration-[300ms] delay-[150ms] ease-[cubic-bezier(0.215,0.61,0.355,1)] top-0 z-[-100] bg-[#f1eee6f2] left-0 right-0`
 
   return (
     <div className=''>
-        <div className='w-full fixed z-1000 top-0'>
+        <div className='w-full fixed z-[1000] top-0'>
             <div className='bg-[#f1eee6cc] lg:block max-sm:hidden sm:max-lg:hidden lg:flex lg:justify-end lg:items-center lg:gap-[25px] lg:border-b lg:p-[10px_25px_10px_0] font-semibold'>
-                <Link>
-                    <p>Login</p>
-                </Link>
-                <Link to={'/register'}>
-                    <p>Register</p>
-                </Link>
+                {
+                    user ? (
+                        <div className='flex gap-6'>
+                            <p>{user}</p>
+                            <button type='button' onClick={handleLogout} className='rounded-full'>Logout</button>
+                        </div>
+                    ) : (
+                        <div className='flex gap-6'>
+                            <Link to={'/login'}>
+                                <p>Login</p>
+                            </Link>
+                            <Link to={'/register'}>
+                                <p>Register</p>
+                            </Link>
+                        </div>
+                    )
+                }
             </div>
             <div className='bg-[#f1eee6cc] w-full'>
                 <div className='lg:block max-sm:hidden sm:max-lg:hidden lg:flex lg:gap-[15px] lg:items-center lg:w-[1300px] lg:mx-auto '>

@@ -79,13 +79,14 @@ function Main() {
                     max-sm:after:h-[1px] max-sm:after:border-b-[1px] max-sm:after:border-dotted max-sm:after:border-[#a3258e99] max-sm:after:left-[50%] max-sm:after:w-[60%]'>
                     <div className='lg:p-[10px_0_10px_0] z-[-100]'>
                         <h1 className='text-[#A3258E] lg:text-[45px] font-serif font-bold lg:pb-[10px]
-                            max-sm:text-[20px] max-sm:text-center max-sm:p-[10px_0_20px_0]'>
+                            max-sm:text-[20px] max-sm:text-center max-sm:p-[10px_0_20px_0]
+                            z-[-101]'>
                         OUR ROOMS</h1>
                     </div>
                     <div className='lg:gird lg:grid-cols-4 lg:flex gap-[15px]
                         max-sm:grid max-sm:grid-cols-1 max-sm:mb-[40px] 
                         sm:max-lg:grid sm:max-lg:grid-cols-2'>
-                        <div className='border bg-[#fff] z-[-100]'>
+                        <div className='border bg-[#fff] z-[101]'>
                             <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
                             <div className='lg:p-[15px] border-b
                                 max-sm:p-[10px_20px_10px_20px]
@@ -114,7 +115,8 @@ function Main() {
                             </div>
                             <div className='lg:p-[10px] flex justify-between items-center
                                 max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
+                                sm:max-lg:p-[10px_15px_10px_15px]
+                                '>
                                 <div>
                                     <p className='text-[#A3258E] font-bold text-[25px]'>$ 250</p>
                                     <p>PER NIGHT</p>
