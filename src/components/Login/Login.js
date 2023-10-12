@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {TfiFacebook, TfiEmail} from 'react-icons/tfi';
 import {IoLogoGoogleplus} from 'react-icons/io';
 import {FaLinkedinIn, FaRegUser} from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {PiLockBold} from 'react-icons/pi';
 import {GiStabbedNote} from 'react-icons/gi';
 import axios from 'axios';
@@ -11,29 +11,36 @@ function Login() {
     const [emailUS, setEmailUS] = useState('')
     const [passwordUS, setPasswordUS] = useState('');
     const [dataUS, setDataUS] = useState([]);
-    const date = Date();
     const [error, setError] = useState("hidden");
     const [content, setContent] = useState('');
+    const navigate = useNavigate();
 
     const getDataUS = async () => {
-        const res = await axios.get(
+        const response = await axios.get(
             'http://localhost:3004/users'
         );
 
-        if (res.status === 200) {
-            setDataUS((res.data).map((item) => item.email));
+        if (response.status === 200) {
+            setDataUS(response.data);
         };
     };
 
     const handleLogin = async () => {
-        setError("block");
-        setContent("Login Failed")
+        if (dataUS.some(item=>item.email === emailUS) && dataUS.some(item=>item.password === passwordUS)) {
+            setError("hidden");
+            setContent("");
+            window.localStorage.setItem('user',JSON.stringify(dataUS.find(item=>item.email === emailUS).email))
+            window.alert('Login success!!')
+            navigate('/')
+        }else{
+            setError("block");
+            setContent("Login Failed")
+        }
     };
 
     useEffect(() => {
         getDataUS()
     }, []);
-
     const Error = ` ${error}`;
 
   return (

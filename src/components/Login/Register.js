@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {TfiFacebook, TfiEmail} from 'react-icons/tfi';
 import {IoLogoGoogleplus} from 'react-icons/io';
 import {FaLinkedinIn, FaRegUser} from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {PiLockBold} from 'react-icons/pi';
 import {GiStabbedNote} from 'react-icons/gi';
 import axios from 'axios';
@@ -13,9 +13,10 @@ function Register() {
     const [passwordUS, setPasswordUS] = useState('');
     const [rePasswors, setRePassword] = useState('');
     const [dataUS, setDataUS] = useState([]);
-    const date = Date();
+    const date = new Date().toLocaleString();
     const [error, setError] = useState("hidden");
     const [content, setContent] = useState('');
+    const navigage = useNavigate()
 
     const getDataUS = async () => {
         const res = await axios.get(
@@ -52,12 +53,13 @@ function Register() {
                             email: emailUS,
                             password: passwordUS,
                             role: "user",
-                            registration_data: date,
+                            createAt: date,
                         }
                     );
 
-                    if (response.status === 200) {
-                        alert("Thanh cong")
+                    if (response.status === 201) {
+                        window.alert('Register success!!')
+                        navigage('/login')
                     }
                 } else {
                     setError("block");

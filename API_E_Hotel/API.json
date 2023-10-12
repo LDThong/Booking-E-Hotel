@@ -16,6 +16,14 @@
       "role": "user",
       "registration_data": "Tue Oct 10 2023 14:13:04 GMT+0700 (Indochina Time)",
       "id": 2
+    },
+    {
+      "username": "hoangbao",
+      "email": "bao@gmail.com",
+      "password": "123",
+      "role": "user",
+      "registration_data": "15:37:19 12/10/2023",
+      "id": 3
     }
   ]
 }
