@@ -26,9 +26,9 @@ function Header() {
 
   return (
     <div className=''>
-        <div className='w-full fixed z-1000 top-0'>
+        <div className='w-full fixed z-[1000] top-0'>
             <div className='bg-[#f1eee6cc] lg:block max-sm:hidden sm:max-lg:hidden lg:flex lg:justify-end lg:items-center lg:gap-[25px] lg:border-b lg:p-[10px_25px_10px_0] font-semibold'>
-                <Link>
+                <Link to={'/login'}>
                     <p>Login</p>
                 </Link>
                 <Link to={'/register'}>
@@ -102,7 +102,7 @@ function Header() {
                                     <Link>
                                         <span className='text-[#a3258e] text-[20px] font-medium'>FAQs</span>
                                     </Link>
-                                    <Link>
+                                    <Link to={'/login'}>
                                         <span className='text-[#a3258e] text-[20px] font-medium'>Login</span>
                                     </Link>
                                     <Link to={'/register'}>

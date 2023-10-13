@@ -5,7 +5,7 @@
       "email": "leducthong2603@gmail.com",
       "password": "123456",
       "role": "admin",
-      "state": "online",
+      "state": "normal",
       "registration_data": "",
       "id": 1
     },
@@ -14,6 +14,7 @@
       "email": "hoangbao0102@gmail.com",
       "password": "123",
       "role": "user",
+      "state": "normal",
       "registration_data": "Tue Oct 10 2023 14:13:04 GMT+0700 (Indochina Time)",
       "id": 2
     }

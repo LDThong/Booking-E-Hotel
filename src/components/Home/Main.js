@@ -18,10 +18,10 @@ function Main() {
             <div className='lg:p-[250px_250px_250px_250px]
                 max-sm:p-[15px] max-sm:bg-[#c03fca66]
                 sm:max-lg:p-[15px] sm:max-lg:bg-[#00000066]'>
-                <div className='lg:grid lg:grid-cols-2 lg:w-full bg-[#fff] lg:p-[20px_15px_25px_15px] lg:gap-[10px]
+                <div className='lg:flex lg:w-full bg-[#fff] lg:p-[20px_15px_25px_15px] lg:gap-[10px]
                     max-sm:p-[15px] 
                     sm:max-lg:p-[15px]'>
-                    <div className='lg:flex lg:gap-[10px]
+                    <div className='lg:flex lg:gap-[10px] lg:w-[60%]
                         sm:max-lg:flex sm:max-lg:justify-between sm:max-lg:mb-[10px]'>
                         <div className='flex flex-col lg:gap-[15px] lg:w-[50%]
                             sm:max-lg:w-[47%] '>
@@ -42,7 +42,7 @@ function Main() {
                                 sm:max-lg:mb-[15px]' placeholder='Children'></input>
                         </div>
                     </div>
-                    <div className='flex flex-col justify-end'>
+                    <div className='flex flex-col justify-end lg:w-[40%]'>
                         <button
                             type='butotn'
                             className='py-[10px] w-full bg-[#A3258E] text-[#fff] font-semibol'>Search</button>
@@ -77,15 +77,15 @@ function Main() {
                 <div className='lg:w-[100%] lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-[45px]
                     relative max-sm:after:absolute max-sm:after:content-[""] max-sm:after:translate-x-[-50%] max-sm:after:z-[-100]
                     max-sm:after:h-[1px] max-sm:after:border-b-[1px] max-sm:after:border-dotted max-sm:after:border-[#a3258e99] max-sm:after:left-[50%] max-sm:after:w-[60%]'>
-                    <div className='lg:p-[10px_0_10px_0] z-[-100]'>
+                    <div className='lg:p-[10px_0_10px_0]'>
                         <h1 className='text-[#A3258E] lg:text-[45px] font-serif font-bold lg:pb-[10px]
-                            max-sm:text-[20px] max-sm:text-center max-sm:p-[10px_0_20px_0]'>
+                            max-sm:text-[20px] max-sm:text-center max-sm:p-[10px_0_20px_0] '>
                         OUR ROOMS</h1>
                     </div>
                     <div className='lg:gird lg:grid-cols-4 lg:flex gap-[15px]
                         max-sm:grid max-sm:grid-cols-1 max-sm:mb-[40px] 
                         sm:max-lg:grid sm:max-lg:grid-cols-2'>
-                        <div className='border bg-[#fff] z-[-100]'>
+                        <div className='border bg-[#fff] '>
                             <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
                             <div className='lg:p-[15px] border-b
                                 max-sm:p-[10px_20px_10px_20px]
@@ -125,7 +125,7 @@ function Main() {
                                 </button>
                             </div>
                         </div>
-                        <div className='border bg-[#fff] z-[-100]'>
+                        <div className='border bg-[#fff] '>
                             <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
                             <div className='lg:p-[15px] border-b
                                 max-sm:p-[10px_20px_10px_20px]
@@ -165,7 +165,7 @@ function Main() {
                                 </button>
                             </div>
                         </div>
-                        <div className='border bg-[#fff] z-[-100]'>
+                        <div className='border bg-[#fff] '>
                             <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
                             <div className='lg:p-[15px] border-b
                                 max-sm:p-[10px_20px_10px_20px]
@@ -205,7 +205,7 @@ function Main() {
                                 </button>
                             </div>
                         </div>
-                        <div className='border bg-[#fff] z-[-100]'>
+                        <div className='border bg-[#fff] '>
                             <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
                             <div className='lg:p-[15px] border-b
                                 max-sm:p-[10px_20px_10px_20px]
@@ -250,7 +250,7 @@ function Main() {
                 
             </div>
 
-            <div className='lg:flex max-sm:pt-[40px] z-[-100]
+            <div className='lg:flex max-sm:pt-[40px]
                 relative max-sm:after:absolute max-sm:after:content-[""] max-sm:after:translate-x-[-50%] max-sm:after:z-[-100]
                 max-sm:after:h-[1px] max-sm:after:border-b-[1px] max-sm:after:border-dotted max-sm:after:border-[#a3258e99] max-sm:after:left-[50%] max-sm:after:w-[60%]
                 sm:max-lg:flex sm:max-lg:pt-[60px] sm:max-lg:gap-[30px]'>
