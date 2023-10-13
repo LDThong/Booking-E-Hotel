@@ -121,7 +121,7 @@ function Header({user, handleLogout}) {
                                     <Link>
                                         <span className='text-[#a3258e] text-[20px] font-medium'>FAQs</span>
                                     </Link>
-                                    <Link>
+                                    <Link to={'/login'}>
                                         <span className='text-[#a3258e] text-[20px] font-medium'>Login</span>
                                     </Link>
                                     <Link to={'/register'}>

@@ -17,7 +17,7 @@ function Login() {
 
     const getDataUS = async () => {
         const response = await axios.get(
-            'http://localhost:3004/users'
+            'https://h8jv55-3004.csb.app/users'
         );
 
         if (response.status === 200) {

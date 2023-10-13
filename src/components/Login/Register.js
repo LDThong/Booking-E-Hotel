@@ -20,7 +20,7 @@ function Register() {
 
     const getDataUS = async () => {
         const res = await axios.get(
-            'http://localhost:3004/users'
+            'https://h8jv55-3004.csb.app/users'
         );
 
         if (res.status === 200) {
@@ -47,7 +47,7 @@ function Register() {
             if (check) {
                 if (passwordUS === rePasswors) {
                     const response = await axios.post(
-                        'http://localhost:3004/users', 
+                        'https://h8jv55-3004.csb.app/users', 
                         {
                             username: usernameUS,
                             email: emailUS,
