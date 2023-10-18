@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import {PiLockBold} from 'react-icons/pi';
 import {GiStabbedNote} from 'react-icons/gi';
 import axios from 'axios';
-import {IoHomeOutline} from 'react-icons/io5';
 
 function Register() {
     const [usernameUS, setUsernameUS] = useState('');
@@ -14,14 +13,14 @@ function Register() {
     const [passwordUS, setPasswordUS] = useState('');
     const [rePasswors, setRePassword] = useState('');
     const [dataUS, setDataUS] = useState([]);
-    const date = Date();
+    const date = new Date().toLocaleString();
     const [error, setError] = useState("hidden");
     const [content, setContent] = useState('');
-    const Navigate = useNavigate();
+    const navigage = useNavigate()
 
     const getDataUS = async () => {
         const res = await axios.get(
-            'http://localhost:3004/users'
+            'https://h8jv55-3004.csb.app/users'
         );
 
         if (res.status === 200) {
@@ -48,18 +47,19 @@ function Register() {
             if (check) {
                 if (passwordUS === rePasswors) {
                     const response = await axios.post(
-                        'http://localhost:3004/users', 
+                        'https://h8jv55-3004.csb.app/users', 
                         {
                             username: usernameUS,
                             email: emailUS,
                             password: passwordUS,
                             role: "user",
-                            registration_data: date,
+                            createAt: date,
                         }
                     );
 
-                    if (response.status === 200) {
-                        Navigate('/login')
+                    if (response.status === 201) {
+                        window.alert('Register success!!')
+                        navigage('/login')
                     }
                 } else {
                     setError("block");
@@ -78,17 +78,17 @@ function Register() {
   return (
     <div className='lg:flex lg:h-screen lg:p-[20px]
         sm:max-lg:flex sm:max-lg:h-[800px] sm:max-lg:p-[25px]'>
-        <div className='lg:block lg:w-[35%] lg:bg-[#A3258E] lg:rounded-bl-[25px] lg:rounded-tl-[25px] relative
-            max-sm:hidden 
+        <div className='lg:block lg:w-[35%] lg:bg-[#A3258E] lg:rounded-bl-[25px] lg:rounded-tl-[25px]
+            max-sm:hidden
             sm:max-lg:block sm:max-lg:bg-[#A3258E] sm:max-lg:w-[30%] sm:max-lg:text-[#fff] sm:max-lg:rounded-bl-[15px] sm:max-lg:rounded-tl-[15px]'>
-                <Link to={'/'} className=''>
-                    <div  className=' text-[#A3258E] flex items-center w-fit m-[10px_0_0_15px] gap-[5px] rounded-[15px]
-                        lg:bg-[#fff] lg:m-[15px_0px_0_20px] lg:p-[5px_10px_5px_10px] 
-                        sm:max-lg:p-[5px_10px_5px_10px] sm:max-lg:bg-[#fff] '>
-                        <FaHotel className='text-[20px]'/>
-                        <p className='lg:text-[15x] font-bold max-sm:font-semibold'>Home Page</p>
-                    </div>
-                </Link>
+            <Link to={'/'} className=''>
+                <div  className=' text-[#A3258E] flex items-center w-fit m-[10px_0_0_15px] gap-[5px] rounded-[15px]
+                    lg:bg-[#fff] lg:m-[15px_0px_0_20px] lg:p-[5px_10px_5px_10px] 
+                    sm:max-lg:p-[5px_10px_5px_10px] sm:max-lg:bg-[#fff] '>
+                    <FaHotel className='text-[20px]'/>
+                    <p className='lg:text-[15x] font-bold max-sm:font-semibold'>Home Page</p>
+                </div>
+            </Link>
             <div className='flex flex-col items-center lg:justify-center gap-[20px] h-full sm:max-lg:justify-evenly'>
                 <div className='text-center sm:max-lg:px-[10px]'>
                     <h1 className='lg:text-[#fff] lg:text-[45px] font-bold 
@@ -118,14 +118,14 @@ function Register() {
                 </div>
             </Link>
             <div className='lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-[30px] lg:h-full
-                max-sm:bg-[#fff] max-sm:rounded-[15px] max-sm:mt-[60px]
+                max-sm:bg-[#fff] max-sm:rounded-[15px] max-sm:mt-[100px]
                 sm:max-lg:flex sm:max-lg:flex-col sm:max-lg:items-center sm:max-lg:justify-evenly sm:max-lg:h-full
                 '>
                 <div className='flex flex-col lg:gap-[25px]
                     max-sm:items-center max-sm:mt-[30px] max-sm:relative max-sm:pt-[50px] max-sm:gap-[10px]
                     sm:max-lg:gap-[15px]'>
-                    <GiStabbedNote className='lg:hidden max-sm:block sm:max-lg:hidden max-sm:text-[#A3258E] max-sm:text-[100px] 
-                        max-sm:absolute max-sm:top-[-55px]'/>
+                    <GiStabbedNote className='lg:hidden max-sm:block sm:max-lg:hidden max-sm:text-purple-600 max-sm:text-[100px] 
+                        max-sm:absolute max-sm:top-[-65px]'/>
                     <h1 className='lg:text-[#A3258E] lg:text-[50px] font-bold
                         max-sm:text-[#656565] max-sm:text-[30px]
                         sm:max-lg:text-[#8B8C94] sm:max-lg:text-[35px]'>

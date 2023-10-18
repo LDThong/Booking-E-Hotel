@@ -1,8 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {IoPeopleSharp} from 'react-icons/io5';
 import {FaChildren} from 'react-icons/fa6';
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Main() {
+    const [deluxe, setDeluxe] = useState([]);
+    const [family, setFamily] = useState([]);
+    const [suite, setSuite] = useState([]);
+    const [senior, setSenior] = useState([]);
+    const navigater = useNavigate();
+
+    const getData = async () => {
+        const res = await axios.get(
+            "https://h8jv55-3004.csb.app/room_type"
+        );
+
+        if (res.status === 200) {
+            const roomDeluxe = ((res.data).filter((item) => item.room_type === "Deluxe"));
+            setDeluxe(roomDeluxe);
+            const roomFamily = ((res.data).filter((item) => item.room_type === "Family"));
+            setFamily(roomFamily);
+            const roomSuite = ((res.data).filter((item) => item.room_type === "Suite"));
+            setSuite(roomSuite);
+            const roomSenior = ((res.data).filter((item) => item.room_type === "Senior"));
+            setSenior(roomSenior);
+        }
+    };
+
+    const handleBooking = (id) => {
+        navigater("/room-detail/" + id)
+    }
+
+    useEffect(() => {
+        getData()
+    }, []);
 
   return (
     <div className='lg:mt-[120px] 
@@ -85,166 +117,187 @@ function Main() {
                     <div className='lg:gird lg:grid-cols-4 lg:flex gap-[15px]
                         max-sm:grid max-sm:grid-cols-1 max-sm:mb-[40px] 
                         sm:max-lg:grid sm:max-lg:grid-cols-2'>
-                        <div className='border bg-[#fff] '>
-                            <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
-                            <div className='lg:p-[15px] border-b
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <p className='font-semibold text-[20px]'>Deluxe City View</p>
-                                <div className='flex justify-between'>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <IoPeopleSharp className='text-[#A3258E]'/>
-                                            <p className='font-bold'>2</p>
+                        {deluxe.map((item) => (
+                            <div key={item} className='border bg-[#fff] '>
+                                <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
+                                <div className='lg:p-[15px] border-b
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <Link to={'/room-detail/' + item.id} state={item} className='hover:text-[#A3258E] inline-block'>
+                                        <p className='font-semibold text-[22px]'>{item.room_type}</p>
+                                    </Link>
+                                    <div className='flex justify-between'>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <IoPeopleSharp className='text-[#A3258E]' />
+                                                <p className='font-bold'>2</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold '>ADULT</p>
+                                            </div>
                                         </div>
-                                        <div className='flex'>
-                                            <p className='font-bold '>ADULT</p>
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <FaChildren className='text-[#A3258E]'/>
-                                            <p className='font-bold'>1</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold'>CHILDREN</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='lg:p-[10px] flex justify-between items-center
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <div>
-                                    <p className='text-[#A3258E] font-bold text-[25px]'>$ 250</p>
-                                    <p>PER NIGHT</p>
-                                </div>
-                                <button
-                                    className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
-                                    Book Now
-                                </button>
-                            </div>
-                        </div>
-                        <div className='border bg-[#fff] '>
-                            <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
-                            <div className='lg:p-[15px] border-b
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <p className='font-semibold text-[20px]'>Deluxe City View</p>
-                                <div className='flex justify-between'>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <IoPeopleSharp className='text-[#A3258E]'/>
-                                            <p className='font-bold'>2</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold '>ADULT</p>
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <FaChildren className='text-[#A3258E]'/>
-                                            <p className='font-bold'>1</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold'>CHILDREN</p>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <FaChildren className='text-[#A3258E]' />
+                                                <p className='font-bold'>1</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold'>CHILDREN</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className='lg:p-[10px] flex justify-between items-center
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <div>
-                                    <p className='text-[#A3258E] font-bold text-[25px]'>$ 250</p>
-                                    <p>PER NIGHT</p>
-                                </div>
-                                <button
-                                    className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
-                                    Book Now
-                                </button>
-                            </div>
-                        </div>
-                        <div className='border bg-[#fff] '>
-                            <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
-                            <div className='lg:p-[15px] border-b
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <p className='font-semibold text-[20px]'>Deluxe City View</p>
-                                <div className='flex justify-between'>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <IoPeopleSharp className='text-[#A3258E]'/>
-                                            <p className='font-bold'>2</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold '>ADULT</p>
-                                        </div>
+                                <div className='lg:p-[10px] flex justify-between items-center
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]
+                                        '>
+                                    <div>
+                                        <p className='text-[#A3258E] font-bold text-[25px]'>$ {item.price}</p>
+                                        <p>PER NIGHT</p>
                                     </div>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <FaChildren className='text-[#A3258E]'/>
-                                            <p className='font-bold'>1</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold'>CHILDREN</p>
-                                        </div>
-                                    </div>
+                                    <button
+                                        onClick={() => handleBooking(item.id)}
+                                        className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
+                                        Book Now
+                                    </button>
                                 </div>
                             </div>
-                            <div className='lg:p-[10px] flex justify-between items-center
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <div>
-                                    <p className='text-[#A3258E] font-bold text-[25px]'>$ 250</p>
-                                    <p>PER NIGHT</p>
-                                </div>
-                                <button
-                                    className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
-                                    Book Now
-                                </button>
-                            </div>
-                        </div>
-                        <div className='border bg-[#fff] '>
-                            <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
-                            <div className='lg:p-[15px] border-b
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <p className='font-semibold text-[20px]'>Deluxe City View</p>
-                                <div className='flex justify-between'>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <IoPeopleSharp className='text-[#A3258E]'/>
-                                            <p className='font-bold'>2</p>
+                        ))}
+                        {family.map((item) => (
+                            <div key={item} className='border bg-[#fff] '>
+                                <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
+                                <div className='lg:p-[15px] border-b
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <Link to={'/room-detail/' + item.id} state={item} className='hover:text-[#A3258E] inline-block'>
+                                        <p className='font-semibold text-[22px]'>{item.room_type}</p>
+                                    </Link>
+                                    <div className='flex justify-between'>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <IoPeopleSharp className='text-[#A3258E]' />
+                                                <p className='font-bold'>2</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold '>ADULT</p>
+                                            </div>
                                         </div>
-                                        <div className='flex'>
-                                            <p className='font-bold '>ADULT</p>
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <FaChildren className='text-[#A3258E]'/>
-                                            <p className='font-bold'>1</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold'>CHILDREN</p>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <FaChildren className='text-[#A3258E]' />
+                                                <p className='font-bold'>1</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold'>CHILDREN</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className='lg:p-[10px] flex justify-between items-center
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <div>
-                                    <p className='text-[#A3258E] font-bold text-[25px]'>$ 250</p>
-                                    <p>PER NIGHT</p>
+                                <div className='lg:p-[10px] flex justify-between items-center
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <div>
+                                        <p className='text-[#A3258E] font-bold text-[25px]'>$ {item.price}</p>
+                                        <p>PER NIGHT</p>
+                                    </div>
+                                    <button
+                                        onClick={() => handleBooking(item.id)}
+                                        className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
+                                        Book Now
+                                    </button>
                                 </div>
-                                <button
-                                    className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
-                                    Book Now
-                                </button>
                             </div>
-                        </div>
+                        ))}
+                        {suite.map((item) => (
+                            <div key={item} className='border bg-[#fff] '>
+                                <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
+                                <div className='lg:p-[15px] border-b
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <Link to={'/room-detail/' + item.id} state={item} className='hover:text-[#A3258E] inline-block'>
+                                        <p className='font-semibold text-[22px]'>{item.room_type}</p>
+                                    </Link>
+                                    <div className='flex justify-between'>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <IoPeopleSharp className='text-[#A3258E]' />
+                                                <p className='font-bold'>2</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold '>ADULT</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <FaChildren className='text-[#A3258E]' />
+                                                <p className='font-bold'>1</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold'>CHILDREN</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='lg:p-[10px] flex justify-between items-center
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <div>
+                                        <p className='text-[#A3258E] font-bold text-[25px]'>$ {item.price}</p>
+                                        <p>PER NIGHT</p>
+                                    </div>
+                                    <button
+                                        onClick={() => handleBooking(item.id)}
+                                        className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
+                                        Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                        {senior.map((item) => (
+                            <div key={item} className='border bg-[#fff] '>
+                                <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
+                                <div className='lg:p-[15px] border-b
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <Link to={'/room-detail/' + item.id} state={item} className='hover:text-[#A3258E] inline-block'>
+                                        <p className='font-semibold text-[22px]'>{item.room_type}</p>
+                                    </Link>
+                                    <div className='flex justify-between'>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <IoPeopleSharp className='text-[#A3258E]' />
+                                                <p className='font-bold'>2</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold '>ADULT</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <FaChildren className='text-[#A3258E]' />
+                                                <p className='font-bold'>1</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold'>CHILDREN</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='lg:p-[10px] flex justify-between items-center
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <div>
+                                        <p className='text-[#A3258E] font-bold text-[25px]'>$ {item.price}</p>
+                                        <p>PER NIGHT</p>
+                                    </div>
+                                    <button
+                                        onClick={() => handleBooking(item.id)}
+                                        className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
+                                        Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
                 

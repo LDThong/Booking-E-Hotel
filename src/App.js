@@ -1,8 +1,8 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import './App.css';
 import HomePage from './components/Home/HomePage';
 import Register from './components/Login/Register';
 import Login from './components/Login/Login';
+import RoomDetail from './components/Home/RoomDetail/RoomDetail';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />
+  },
+  {
+    path: '/room-detail/:id',
+    element: <RoomDetail />
   }
 ])
 
