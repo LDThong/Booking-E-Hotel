@@ -14,7 +14,7 @@ function RoomType() {
 
     const getDataRoom = async () => {
         const res = await axios.get(
-            "https://h8jv55-3004.csb.app/room_type/" + id
+            "https://h8jv55-3004.csb.app/roomTypes/" + id
         );
 
         if (res.status === 200) {

@@ -13,7 +13,7 @@ function Main() {
 
     const getData = async () => {
         const res = await axios.get(
-            "https://h8jv55-3004.csb.app/room_type"
+            "https://h8jv55-3004.csb.app/roomTypes"
         );
 
         if (res.status === 200) {

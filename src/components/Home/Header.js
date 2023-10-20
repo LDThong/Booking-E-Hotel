@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaBars, FaXmark } from 'react-icons/fa6';
 import { FiChevronDown } from 'react-icons/fi';
 
@@ -7,6 +7,7 @@ function Header({ user, handleLogout }) {
     const [translateX, setTranslateX] = useState("translate-x-[-110%]");
     const [bars, setBars] = useState("block");
     const [xB, setXB] = useState("hidden");
+    const navigater = useNavigate();
 
 
     const onNav = () => {
@@ -19,6 +20,10 @@ function Header({ user, handleLogout }) {
         setXB("hidden");
         setBars("block");
         setTranslateX("translate-x-[-110%]");
+    }
+
+    const handleBooking = () => {
+        navigater('/home/booking/')
     }
 
     // const handleLogout = () =>{
@@ -76,6 +81,7 @@ function Header({ user, handleLogout }) {
                                 <p>FAQs</p>
                             </Link>
                             <button
+                                onClick={handleBooking}
                                 className='bg-[#A3258E] text-[#fff] p-[10px_35px_10px_35px] rounded-[5px]'>
                                 Book
                             </button>
