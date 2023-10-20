@@ -1,10 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {IoPeopleSharp} from 'react-icons/io5';
 import {FaChildren} from 'react-icons/fa6';
 import Search from './Search';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Main() {
+    const [deluxe, setDeluxe] = useState([]);
+    const [family, setFamily] = useState([]);
+    const [suite, setSuite] = useState([]);
+    const [senior, setSenior] = useState([]);
+    const navigater = useNavigate();
 
+    const getData = async () => {
+        const res = await axios.get(
+            "https://h8jv55-3004.csb.app/roomTypes"
+        );
+
+        if (res.status === 200) {
+            const roomDeluxe = ((res.data).filter((item) => item.room_type === "Deluxe"));
+            setDeluxe(roomDeluxe);
+            const roomFamily = ((res.data).filter((item) => item.room_type === "Family"));
+            setFamily(roomFamily);
+            const roomSuite = ((res.data).filter((item) => item.room_type === "Suite"));
+            setSuite(roomSuite);
+            const roomSenior = ((res.data).filter((item) => item.room_type === "Senior"));
+            setSenior(roomSenior);
+        }
+    };
+
+    const handleBooking = (id) => {
+        navigater("/room-detail/" + id)
+    }
+
+    useEffect(() => {
+        getData()
+    }, []);
   return (
     <div className='lg:mt-[120px] 
         max-sm:mt-[62px]
@@ -45,7 +76,7 @@ function Main() {
                 </div>
             </div>
 
-            <div className='lg:flex lg:pb-[100px] '>
+            {/* <div className='lg:flex lg:pb-[100px] '>
                 <div className='lg:w-[100%] lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-[45px]
                     relative max-sm:after:absolute max-sm:after:content-[""] max-sm:after:translate-x-[-50%] max-sm:after:z-[-100]
                     max-sm:after:h-[1px] max-sm:after:border-b-[1px] max-sm:after:border-dotted max-sm:after:border-[#a3258e99] max-sm:after:left-[50%] max-sm:after:w-[60%]'>
@@ -222,8 +253,204 @@ function Main() {
                     </div>
                 </div>
                 
+            </div> */}
+            <div className='lg:flex lg:pb-[100px] '>
+                <div className='lg:w-[100%] lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-[45px]
+                    relative max-sm:after:absolute max-sm:after:content-[""] max-sm:after:translate-x-[-50%] max-sm:after:z-[-100]
+                    max-sm:after:h-[1px] max-sm:after:border-b-[1px] max-sm:after:border-dotted max-sm:after:border-[#a3258e99] max-sm:after:left-[50%] max-sm:after:w-[60%]'>
+                    <div className='lg:p-[10px_0_10px_0]'>
+                        <h1 className='text-[#A3258E] lg:text-[45px] font-serif font-bold lg:pb-[10px]
+                            max-sm:text-[20px] max-sm:text-center max-sm:p-[10px_0_20px_0] '>
+                        OUR ROOMS</h1>
+                    </div>
+                    <div className='lg:gird lg:grid-cols-4 lg:flex gap-[15px]
+                        max-sm:grid max-sm:grid-cols-1 max-sm:mb-[40px] 
+                        sm:max-lg:grid sm:max-lg:grid-cols-2'>
+                        {deluxe.map((item) => (
+                            <div key={item} className='border bg-[#fff] '>
+                                <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
+                                <div className='lg:p-[15px] border-b
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <Link to={'/room-detail/' + item.id} state={item} className='hover:text-[#A3258E] inline-block'>
+                                        <p className='font-semibold text-[22px]'>{item.room_type}</p>
+                                    </Link>
+                                    <div className='flex justify-between'>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <IoPeopleSharp className='text-[#A3258E]' />
+                                                <p className='font-bold'>2</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold '>ADULT</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <FaChildren className='text-[#A3258E]' />
+                                                <p className='font-bold'>1</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold'>CHILDREN</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='lg:p-[10px] flex justify-between items-center
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]
+                                        '>
+                                    <div>
+                                        <p className='text-[#A3258E] font-bold text-[25px]'>$ {item.price}</p>
+                                        <p>PER NIGHT</p>
+                                    </div>
+                                    <button
+                                        onClick={() => handleBooking(item.id)}
+                                        className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
+                                        Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                        {family.map((item) => (
+                            <div key={item} className='border bg-[#fff] '>
+                                <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
+                                <div className='lg:p-[15px] border-b
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <Link to={'/room-detail/' + item.id} state={item} className='hover:text-[#A3258E] inline-block'>
+                                        <p className='font-semibold text-[22px]'>{item.room_type}</p>
+                                    </Link>
+                                    <div className='flex justify-between'>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <IoPeopleSharp className='text-[#A3258E]' />
+                                                <p className='font-bold'>2</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold '>ADULT</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <FaChildren className='text-[#A3258E]' />
+                                                <p className='font-bold'>1</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold'>CHILDREN</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='lg:p-[10px] flex justify-between items-center
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <div>
+                                        <p className='text-[#A3258E] font-bold text-[25px]'>$ {item.price}</p>
+                                        <p>PER NIGHT</p>
+                                    </div>
+                                    <button
+                                        onClick={() => handleBooking(item.id)}
+                                        className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
+                                        Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                        {suite.map((item) => (
+                            <div key={item} className='border bg-[#fff] '>
+                                <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
+                                <div className='lg:p-[15px] border-b
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <Link to={'/room-detail/' + item.id} state={item} className='hover:text-[#A3258E] inline-block'>
+                                        <p className='font-semibold text-[22px]'>{item.room_type}</p>
+                                    </Link>
+                                    <div className='flex justify-between'>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <IoPeopleSharp className='text-[#A3258E]' />
+                                                <p className='font-bold'>2</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold '>ADULT</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <FaChildren className='text-[#A3258E]' />
+                                                <p className='font-bold'>1</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold'>CHILDREN</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='lg:p-[10px] flex justify-between items-center
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <div>
+                                        <p className='text-[#A3258E] font-bold text-[25px]'>$ {item.price}</p>
+                                        <p>PER NIGHT</p>
+                                    </div>
+                                    <button
+                                        onClick={() => handleBooking(item.id)}
+                                        className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
+                                        Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                        {senior.map((item) => (
+                            <div key={item} className='border bg-[#fff] '>
+                                <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
+                                <div className='lg:p-[15px] border-b
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <Link to={'/room-detail/' + item.id} state={item} className='hover:text-[#A3258E] inline-block'>
+                                        <p className='font-semibold text-[22px]'>{item.room_type}</p>
+                                    </Link>
+                                    <div className='flex justify-between'>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <IoPeopleSharp className='text-[#A3258E]' />
+                                                <p className='font-bold'>2</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold '>ADULT</p>
+                                            </div>
+                                        </div>
+                                        <div className='flex flex-col'>
+                                            <div className='flex items-center gap-[10px]'>
+                                                <FaChildren className='text-[#A3258E]' />
+                                                <p className='font-bold'>1</p>
+                                            </div>
+                                            <div className='flex'>
+                                                <p className='font-bold'>CHILDREN</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='lg:p-[10px] flex justify-between items-center
+                                        max-sm:p-[10px_20px_10px_20px]
+                                        sm:max-lg:p-[10px_15px_10px_15px]'>
+                                    <div>
+                                        <p className='text-[#A3258E] font-bold text-[25px]'>$ {item.price}</p>
+                                        <p>PER NIGHT</p>
+                                    </div>
+                                    <button
+                                        onClick={() => handleBooking(item.id)}
+                                        className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
+                                        Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                
             </div>
-
             <div className='lg:flex max-sm:pt-[40px] z-[-100]
                 relative max-sm:after:absolute max-sm:after:content-[""] max-sm:after:translate-x-[-50%] max-sm:after:z-[-100]
                 max-sm:after:h-[1px] max-sm:after:border-b-[1px] max-sm:after:border-dotted max-sm:after:border-[#a3258e99] max-sm:after:left-[50%] max-sm:after:w-[60%]

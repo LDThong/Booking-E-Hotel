@@ -10,18 +10,18 @@ function Footer() {
             </div>
             <div className='flex flex-col lg:px-[15px] w-full lg:leading-7 max-sm:px-[15px] sm:max-lg:px-[25px] sm:max-lg:pb-[20px]'>
                 <h3 className='font-medium text-[#646461] text-[18px] pb-[20px]'>Novotel Hotel</h3>
-                <Link className='text-[#7B6464] hover:text-[#0056b3] hover:underline transition ease-in-out' href='tel:0902461457'>
+                <a className='text-[#7B6464] hover:text-[#0056b3] hover:underline transition ease-in-out' href='tel:0902461457'>
                     <span className='font-medium '>Tel: </span>
                     0902 461 457
-                </Link>
-                <Link className='text-[#7B6464] hover:text-[#0056b3] hover:underline transition ease-in-out' href='tel:0706240008'>
+                </a>
+                <a className='text-[#7B6464] hover:text-[#0056b3] hover:underline transition ease-in-out' href='tel:0706240008'>
                     <span className='font-medium '>Tel: </span>
                     0706 240 008
-                </Link>
-                <Link className='text-[#7B6464] hover:text-[#0056b3] hover:underline transition ease-in-out' href='mailto:leducthong2603@gmail.com'>
+                </a>
+                <a className='text-[#7B6464] hover:text-[#0056b3] hover:underline transition ease-in-out' href='mailto:leducthong2603@gmail.com'>
                     <span className='font-medium '>Email: </span>
                     leducthong2603@gmail.com
-                </Link>
+                </a>
             </div>
             <div className='flex flex-col w-full lg:leading-7 max-sm:px-[15px] max-sm:pt-[20px] sm:max-lg:px-[25px] sm:max-lg:pb-[20px]'>
                 <h3 className='font-medium text-[#646461] text-[18px] pb-[20px]'>Things to know</h3>
