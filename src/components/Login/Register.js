@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef  } from 'react';
 import {TfiFacebook, TfiEmail} from 'react-icons/tfi';
 import {IoLogoGoogleplus} from 'react-icons/io';
 import {FaLinkedinIn, FaRegUser} from 'react-icons/fa6';
@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import {PiLockBold} from 'react-icons/pi';
 import {GiStabbedNote} from 'react-icons/gi';
 import axios from 'axios';
+import emailjs from '@emailjs/browser';
 
 function Register() {
     const [usernameUS, setUsernameUS] = useState('');
@@ -17,6 +18,9 @@ function Register() {
     const [error, setError] = useState("hidden");
     const [content, setContent] = useState('');
     const navigage = useNavigate()
+    const form = useRef();
+
+    
 
     const getDataUS = async () => {
         const res = await axios.get(
@@ -28,6 +32,17 @@ function Register() {
         };
     };
 
+    const data = {
+        service_id: 'service_m6r2elq',
+        template_id: 'template_jfrfawf',
+        user_id: 'QUnTNCWFj6YTCR4K1',
+        template_params:{
+            from_name: 'E-Hotel',
+            user_name: usernameUS,
+            verifyCode: 'AAABBB',
+            user_email: emailUS,
+        }
+    }   
     const postData = async () => {
         let check = true;
 
@@ -53,13 +68,20 @@ function Register() {
                             email: emailUS,
                             password: passwordUS,
                             role: "user",
+                            verifyCode: 'AAABBB',
+                            status: false,
                             createAt: date,
                         }
                     );
 
                     if (response.status === 201) {
-                        window.alert('Register success!!')
-                        navigage('/login')
+                        const res = await axios.post("https://api.emailjs.com/api/v1.0/email/send", data);
+                        if (res.status === 200) {
+                            window.alert('Register success, please login and verify your account.(verify code was send to your email)')
+                            navigage('/login')  
+                        }else{
+                            window.alert('Please try again!!')
+                        }
                     }
                 } else {
                     setError("block");
@@ -68,7 +90,7 @@ function Register() {
             }
         }
     };
-
+    
     useEffect(() => {
         getDataUS()
     }, []);

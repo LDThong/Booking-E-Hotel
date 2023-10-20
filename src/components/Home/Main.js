@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {IoPeopleSharp} from 'react-icons/io5';
 import {FaChildren} from 'react-icons/fa6';
+import Search from './Search';
 
 function Main() {
 
@@ -18,36 +19,7 @@ function Main() {
             <div className='lg:p-[250px_250px_250px_250px]
                 max-sm:p-[15px] max-sm:bg-[#c03fca66]
                 sm:max-lg:p-[15px] sm:max-lg:bg-[#00000066]'>
-                <div className='lg:grid lg:grid-cols-2 lg:w-full bg-[#fff] lg:p-[20px_15px_25px_15px] lg:gap-[10px]
-                    max-sm:p-[15px] 
-                    sm:max-lg:p-[15px]'>
-                    <div className='lg:flex lg:gap-[10px]
-                        sm:max-lg:flex sm:max-lg:justify-between sm:max-lg:mb-[10px]'>
-                        <div className='flex flex-col lg:gap-[15px] lg:w-[50%]
-                            sm:max-lg:w-[47%] '>
-                            <input type='date' className='border-b-[2px] border-gray-300 pb-[5px] outline-none
-                                max-sm:mb-[15px]
-                                sm:max-lg:mb-[15px]'></input>
-                            <input type='number' className='border-b-[2px] pb-[5px] border-gray-300 outline-none
-                                max-sm:mb-[15px]
-                                sm:max-lg:mb-[15px]' placeholder='Adult'></input>
-                        </div>
-                        <div className='flex flex-col lg:gap-[15px] lg:w-[50%]
-                            sm:max-lg:w-[47%]'>
-                            <input type='date' className='border-b-[2px] border-gray-300 pb-[5px] outline-none
-                                max-sm:mb-[15px]
-                                sm:max-lg:mb-[15px]'></input>
-                            <input type='number' className='border-b-[2px] border-gray-300 pb-[5px] outline-none
-                                max-sm:mb-[15px]
-                                sm:max-lg:mb-[15px]' placeholder='Children'></input>
-                        </div>
-                    </div>
-                    <div className='flex flex-col justify-end'>
-                        <button
-                            type='butotn'
-                            className='py-[10px] w-full bg-[#A3258E] text-[#fff] font-semibol'>Search</button>
-                    </div>
-                </div>
+                <Search/>
             </div>
         </div>
         <div className='lg:w-[1300px] lg:mx-auto lg:pb-[100px] 
