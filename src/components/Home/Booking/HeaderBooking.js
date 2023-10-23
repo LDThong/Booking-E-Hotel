@@ -33,7 +33,7 @@ function HeaderBooking() {
             </div>
         </div>
         <h1 className='lg:text-[23px] lg:font-bold'>NOVOTEL BOOKING ENGINE</h1>
-            <div className='flex gap-[5px] italic'>
+            <div className='flex gap-[5px] italic mb-[10px]'>
                 <p className='font-medium'>Phone:</p>
                 <div className='flex flex-col text-yellow-600 font-medium underline'>
                     <a href='tel:0902461457'>
