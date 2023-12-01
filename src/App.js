@@ -5,6 +5,10 @@ import Login from './components/Login/Login';
 import RoomDetail from './components/Home/RoomDetail/RoomDetail';
 import Booking from './components/Home/Booking/Booking';
 import BookingDetails from './components/Home/Booking/BookingConfirm';
+
+import PersonalManageBooking from './components/Home/Booking/PersonalManageBooking';
+import Verify from './components/Home/Verify';
+
 import HomeAdmin from './components/Admin/HomeAdmin';
 import ManagementCustomer from './components/Admin/ManagamentCustomer/ManagementCustomer';
 import RoomTypes from './components/Admin/ManagementRoom/RoomTypes';
@@ -13,6 +17,7 @@ import LoginAdmin from './components/Admin/LoginAdmin';
 import Services from './components/Admin/ManagementServices/Services';
 import Promotions from './components/Admin/ManagementPromotion/Promotions';
 import Reports from './components/Admin/ManagementReport/Reports';
+
 
 const router = createBrowserRouter([
   {
@@ -32,13 +37,22 @@ const router = createBrowserRouter([
     element: <RoomDetail />
   },
   {
-    path: '/home/booking/',
+    path: '/home/booking',
     element: <Booking />
   },
   {
     path: '/home/confirm',
     element: <BookingDetails />
   },
+
+  {
+    path: '/home/mybooking',
+    element: <PersonalManageBooking />
+  },
+  {
+    path: '/verify/:id',
+    element: <Verify />
+                                   },
   /** --------------Admin------------ */
   {
     path: '/admin/',
