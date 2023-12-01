@@ -36,7 +36,7 @@ function LoginAdmin() {
                 if (result.role === "admin" || result.role === "receptionist") {
                     setError("hidden");
                     setContent("");
-                    window.localStorage.setItem('user',JSON.stringify(result));
+                    window.localStorage.setItem('admin',JSON.stringify(result));
                     window.alert('Login success!!');
                     navigate('/admin/home/');
                 }else{

@@ -13,7 +13,7 @@ function NavBarAdmin() {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        window.localStorage.removeItem("user");
+        window.localStorage.removeItem("admin");
         navigate("/admin")
     }
 

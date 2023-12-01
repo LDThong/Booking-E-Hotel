@@ -43,7 +43,7 @@ function Booking() {
       setDataFetch(true);
     }
   };
-  console.log(searchData);
+  // console.log(searchData);
   const handleSelectChange = (e, itemId, itemPrice, itemAvailableQuatity) => {
     if (e.target.value < itemAvailableQuatity) {
       const { value } = e.target;

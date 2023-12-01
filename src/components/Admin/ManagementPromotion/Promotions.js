@@ -8,7 +8,7 @@ import {FaRegCircleXmark} from 'react-icons/fa6';
 
 
 function Promotions() {
-    const [user, setUser] = useState(JSON.parse(window.localStorage.getItem("user")));
+    const [user, setUser] = useState(JSON.parse(window.localStorage.getItem("admin")));
     const [dataPromotion, setDataPromotion] = useState(null);
     const [viewAddPromotion, setViewAddPromotion] = useState("hidden");
     const [newPromotionName, setNewPromotionName] = useState("");

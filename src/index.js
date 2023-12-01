@@ -16,16 +16,10 @@ import { Provider } from 'react-redux';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-
-    {/* <Provider store={store}> */}
-    <MySearchContext>
-      <App />
-    </MySearchContext>
-      
-    {/* </Provider> */}
-
     <Provider store={store}>
-      <App />
+      <MySearchContext>
+        <App />
+      </MySearchContext>
     </Provider>
 
   </>

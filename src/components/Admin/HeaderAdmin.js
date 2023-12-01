@@ -4,7 +4,7 @@ import {FaBell} from 'react-icons/fa';
 import {FcManager} from 'react-icons/fc';
 
 function HeaderAdmin() {
-    const [user, setUser] = useState(JSON.parse(window.localStorage.getItem("user")));
+    const [user, setUser] = useState(JSON.parse(window.localStorage.getItem("admin")));
 
     return (
     <div className='w-full bg-[#fff]'>

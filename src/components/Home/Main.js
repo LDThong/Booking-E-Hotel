@@ -75,185 +75,6 @@ function Main() {
                     Novotel Hotel with fully equipped rooms, the interior space is decorated in a luxurious style that blends the traditional features of Vietnam and the modernity of the West. We have a staff of well-trained, professional and professional, dedicated service</p>
                 </div>
             </div>
-
-            {/* <div className='lg:flex lg:pb-[100px] '>
-                <div className='lg:w-[100%] lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-[45px]
-                    relative max-sm:after:absolute max-sm:after:content-[""] max-sm:after:translate-x-[-50%] max-sm:after:z-[-100]
-                    max-sm:after:h-[1px] max-sm:after:border-b-[1px] max-sm:after:border-dotted max-sm:after:border-[#a3258e99] max-sm:after:left-[50%] max-sm:after:w-[60%]'>
-                    <div className='lg:p-[10px_0_10px_0] z-[-100]'>
-                        <h1 className='text-[#A3258E] lg:text-[45px] font-serif font-bold lg:pb-[10px]
-                            max-sm:text-[20px] max-sm:text-center max-sm:p-[10px_0_20px_0]
-                            z-[-101]'>
-                        OUR ROOMS</h1>
-                    </div>
-                    <div className='lg:gird lg:grid-cols-4 lg:flex gap-[15px]
-                        max-sm:grid max-sm:grid-cols-1 max-sm:mb-[40px] 
-                        sm:max-lg:grid sm:max-lg:grid-cols-2'>
-                        <div className='border bg-[#fff] z-[101]'>
-                            <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
-                            <div className='lg:p-[15px] border-b
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <p className='font-semibold text-[20px]'>Deluxe City View</p>
-                                <div className='flex justify-between'>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <IoPeopleSharp className='text-[#A3258E]'/>
-                                            <p className='font-bold'>2</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold '>ADULT</p>
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <FaChildren className='text-[#A3258E]'/>
-                                            <p className='font-bold'>1</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold'>CHILDREN</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='lg:p-[10px] flex justify-between items-center
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]
-                                '>
-                                <div>
-                                    <p className='text-[#A3258E] font-bold text-[25px]'>$ 250</p>
-                                    <p>PER NIGHT</p>
-                                </div>
-                                <button
-                                    className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
-                                    Book Now
-                                </button>
-                            </div>
-                        </div>
-                        <div className='border bg-[#fff] z-[-100]'>
-                            <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
-                            <div className='lg:p-[15px] border-b
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <p className='font-semibold text-[20px]'>Deluxe City View</p>
-                                <div className='flex justify-between'>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <IoPeopleSharp className='text-[#A3258E]'/>
-                                            <p className='font-bold'>2</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold '>ADULT</p>
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <FaChildren className='text-[#A3258E]'/>
-                                            <p className='font-bold'>1</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold'>CHILDREN</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='lg:p-[10px] flex justify-between items-center
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <div>
-                                    <p className='text-[#A3258E] font-bold text-[25px]'>$ 250</p>
-                                    <p>PER NIGHT</p>
-                                </div>
-                                <button
-                                    className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
-                                    Book Now
-                                </button>
-                            </div>
-                        </div>
-                        <div className='border bg-[#fff] z-[-100]'>
-                            <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
-                            <div className='lg:p-[15px] border-b
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <p className='font-semibold text-[20px]'>Deluxe City View</p>
-                                <div className='flex justify-between'>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <IoPeopleSharp className='text-[#A3258E]'/>
-                                            <p className='font-bold'>2</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold '>ADULT</p>
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <FaChildren className='text-[#A3258E]'/>
-                                            <p className='font-bold'>1</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold'>CHILDREN</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='lg:p-[10px] flex justify-between items-center
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <div>
-                                    <p className='text-[#A3258E] font-bold text-[25px]'>$ 250</p>
-                                    <p>PER NIGHT</p>
-                                </div>
-                                <button
-                                    className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
-                                    Book Now
-                                </button>
-                            </div>
-                        </div>
-                        <div className='border bg-[#fff] z-[-100]'>
-                            <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
-                            <div className='lg:p-[15px] border-b
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <p className='font-semibold text-[20px]'>Deluxe City View</p>
-                                <div className='flex justify-between'>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <IoPeopleSharp className='text-[#A3258E]'/>
-                                            <p className='font-bold'>2</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold '>ADULT</p>
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-col'>
-                                        <div className='flex items-center gap-[10px]'>
-                                            <FaChildren className='text-[#A3258E]'/>
-                                            <p className='font-bold'>1</p>
-                                        </div>
-                                        <div className='flex'>
-                                            <p className='font-bold'>CHILDREN</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='lg:p-[10px] flex justify-between items-center
-                                max-sm:p-[10px_20px_10px_20px]
-                                sm:max-lg:p-[10px_15px_10px_15px]'>
-                                <div>
-                                    <p className='text-[#A3258E] font-bold text-[25px]'>$ 250</p>
-                                    <p>PER NIGHT</p>
-                                </div>
-                                <button
-                                    className='p-[10px_25px_10px_25px]  text-[#A3258E] border-solid border border-[#A3258E] hover:text-[#fff] hover:bg-[#A3258E]'>
-                                    Book Now
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div> */}
             <div className='lg:flex lg:pb-[100px] '>
                 <div className='lg:w-[100%] lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-[45px]
                     relative max-sm:after:absolute max-sm:after:content-[""] max-sm:after:translate-x-[-50%] max-sm:after:z-[-100]
@@ -268,7 +89,7 @@ function Main() {
                         sm:max-lg:grid sm:max-lg:grid-cols-2'>
                         {deluxe.map((item) => (
                             <div key={item} className='border bg-[#fff] '>
-                                <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
+                                <img width={308} height={168} src='https://firebasestorage.googleapis.com/v0/b/reactjs-53563.appspot.com/o/images%2FDeluxe-Sea-View_Marcom-1.png?alt=media&token=05156fdd-7ab3-47eb-8657-8d56e13d1164'></img>
                                 <div className='lg:p-[15px] border-b
                                         max-sm:p-[10px_20px_10px_20px]
                                         sm:max-lg:p-[10px_15px_10px_15px]'>
@@ -314,7 +135,7 @@ function Main() {
                         ))}
                         {family.map((item) => (
                             <div key={item} className='border bg-[#fff] '>
-                                <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
+                                <img width={308} height={168} src='https://firebasestorage.googleapis.com/v0/b/reactjs-53563.appspot.com/o/images%2FFamily-Room.png?alt=media&token=60fbcf92-5131-4146-b325-3fe3802c5233'></img>
                                 <div className='lg:p-[15px] border-b
                                         max-sm:p-[10px_20px_10px_20px]
                                         sm:max-lg:p-[10px_15px_10px_15px]'>
@@ -359,7 +180,7 @@ function Main() {
                         ))}
                         {suite.map((item) => (
                             <div key={item} className='border bg-[#fff] '>
-                                <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
+                                <img width={308} height={168} src='https://firebasestorage.googleapis.com/v0/b/reactjs-53563.appspot.com/o/images%2FSuite-Room.png?alt=media&token=291fda94-4201-493f-aba3-e507424f3984'></img>
                                 <div className='lg:p-[15px] border-b
                                         max-sm:p-[10px_20px_10px_20px]
                                         sm:max-lg:p-[10px_15px_10px_15px]'>
@@ -404,7 +225,7 @@ function Main() {
                         ))}
                         {senior.map((item) => (
                             <div key={item} className='border bg-[#fff] '>
-                                <img src='/images/Deluxe-Sea-View_Marcom-1.png'></img>
+                                <img width={308} height={168} style={{height: '173px'}} src='https://firebasestorage.googleapis.com/v0/b/social-media-23985.appspot.com/o/phongtongthong.jpg?alt=media&token=b06a54e8-d11f-4dfb-a0cd-176f3eb122d4'></img>
                                 <div className='lg:p-[15px] border-b
                                         max-sm:p-[10px_20px_10px_20px]
                                         sm:max-lg:p-[10px_15px_10px_15px]'>

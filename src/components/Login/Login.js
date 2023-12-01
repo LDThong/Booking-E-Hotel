@@ -27,11 +27,24 @@ function Login() {
 
     const handleLogin = async () => {
         if (dataUS.some(item=>item.email === emailUS) && dataUS.some(item=>item.password === passwordUS)) {
-            setError("hidden");
-            setContent("");
-            window.localStorage.setItem('user',JSON.stringify(dataUS.find(item=>item.email === emailUS).email))
-            window.alert('Login success!!')
-            navigate('/')
+            const checkStatus = dataUS.find(item=>item.email === emailUS).status;
+            const checkRole = dataUS.find(item=>item.email === emailUS).role;
+            if (checkStatus === 'Verified' && checkRole === 'user') {
+                console.log(0);
+                setError("hidden");
+                setContent("");
+                window.localStorage.setItem('user',JSON.stringify(dataUS.find(item=>item.email === emailUS).email))
+                window.alert('Login success!!')
+                navigate('/')
+            }else if (checkStatus === 'Unverified') {
+                console.log(1);
+                setError("block");
+                setContent('please verify your account, link verify in for email.')
+            }else if (checkStatus === 'Banned') {
+                console.log(2);
+                setError("block");
+                setContent('Your account got banned!!!')
+            }
         }else{
             setError("block");
             setContent("Login Failed")
@@ -124,7 +137,7 @@ function Login() {
                         className='bg-[#A3258E] rounded-[25px] font-bold lg:p-[10px_90px_10px_90px] text-[#fff]
                         max-sm:w-full max-sm:py-[5px] max-sm:mb-[15px]
                         sm:max-lg:py-[5px] sm:max-lg:w-[60%]'>
-                        SIGN UP
+                        SIGN IN
                     </button>
                     <span className='lg:hidden max-sm:block sm:max-lg:hidden font-medium text-[#BDBBBC]'>
                         Create new account? <Link to={'/register'} className='text-[#6553FC]'>Sign Up</Link>

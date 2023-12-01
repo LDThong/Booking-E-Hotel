@@ -75,23 +75,21 @@ function Header({user, handleLogout}) {
             <div className='bg-[#f1eee6cc] w-full'>
                 <div className='lg:block max-sm:hidden sm:max-lg:hidden lg:flex lg:gap-[15px] lg:items-center lg:w-[1300px] lg:mx-auto '>
                     <div className='lg:flex lg:gap-[25px] lg:justify-between lg:items-center lg:w-full py-[10px]'>
-                        <Link>
+                        <Link to={'/'}>
                             <p>Home</p>
                         </Link>
-                        <Link>
+                        <Link to={'/rooms/'}>
                             <p>Rooms</p>
                         </Link>
-                        <Link>
-                            <p>About</p>
-                        </Link>
-                        <Link>
+                        
+                        <Link to={'/'}>
                             <img  src='/images/logo-e-hotel.png'></img>
                         </Link>
-                        <Link>
-                            <p>Contact Us</p>
+                        <Link to={'/'}>
+                            <p>About</p>
                         </Link>
-                        <Link>
-                            <p>FAQs</p>
+                        <Link to={'https://www.facebook.com/NovotelDanangPremierHanRiver/'}>
+                            <p>Contact Us</p>
                         </Link>
                         <button
                             onClick={handleBooking}
