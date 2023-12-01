@@ -7,6 +7,11 @@ function HomePage() {
   const [user, setUser] = useState(null);
   const handleLogout = () => {
     window.localStorage.removeItem("user");
+    window.localStorage.removeItem("AvailableRoom");
+    window.localStorage.removeItem("checkin")
+    window.localStorage.removeItem("total")
+    window.localStorage.removeItem("people")
+    window.localStorage.removeItem("selectRoom")
     setUser(null);
   };
   const handleUser = () => {

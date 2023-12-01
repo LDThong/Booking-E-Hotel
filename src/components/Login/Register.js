@@ -32,19 +32,29 @@ function Register() {
         };
     };
 
-    const data = {
-        service_id: 'service_m6r2elq',
-        template_id: 'template_jfrfawf',
-        user_id: 'QUnTNCWFj6YTCR4K1',
-        template_params:{
-            from_name: 'E-Hotel',
-            user_name: usernameUS,
-            verifyCode: 'AAABBB',
-            user_email: emailUS,
-        }
-    }   
+    
+
+    
     const postData = async () => {
         let check = true;
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let randomCode = '';
+        for (let i = 0; i < 6; i++) {
+          const randomIndex = Math.floor(Math.random() * characters.length);
+          randomCode += characters.charAt(randomIndex);
+        }
+
+        const data = {
+            service_id: 'service_m6r2elq',
+            template_id: 'template_jfrfawf',
+            user_id: 'QUnTNCWFj6YTCR4K1',
+            template_params:{
+                from_name: 'E-Hotel',
+                user_name: usernameUS,
+                verifyCode: randomCode,
+                user_email: emailUS,
+            }
+        }
 
         if (usernameUS === '' || emailUS === '' || passwordUS === '' || rePasswors === '') {
             setError("block");
@@ -68,14 +78,25 @@ function Register() {
                             email: emailUS,
                             password: passwordUS,
                             role: "user",
-                            verifyCode: 'AAABBB',
-                            status: false,
-                            createAt: date,
+                            verifyCode: randomCode,
+                            status: 'Unverified',
+                            createAt: date
                         }
                     );
 
                     if (response.status === 201) {
-                        const res = await axios.post("https://api.emailjs.com/api/v1.0/email/send", data);
+                        const res = await axios.post("https://api.emailjs.com/api/v1.0/email/send", {
+                            service_id: 'service_m6r2elq',
+                            template_id: 'template_jfrfawf',
+                            user_id: 'QUnTNCWFj6YTCR4K1',
+                            template_params:{
+                                from_name: 'E-Hotel',
+                                user_name: usernameUS,
+                                verifyCode: randomCode,
+                                user_email: emailUS,
+                                verifyURL: `http://localhost:3000/verify/${response.data.id}`
+                            }
+                        });
                         if (res.status === 200) {
                             window.alert('Register success, please login and verify your account.(verify code was send to your email)')
                             navigage('/login')  

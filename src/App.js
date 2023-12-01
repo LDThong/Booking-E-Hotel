@@ -5,6 +5,8 @@ import Login from './components/Login/Login';
 import RoomDetail from './components/Home/RoomDetail/RoomDetail';
 import Booking from './components/Home/Booking/Booking';
 import BookingDetails from './components/Home/Booking/BookingConfirm';
+import PersonalManageBooking from './components/Home/Booking/PersonalManageBooking';
+import Verify from './components/Home/Verify';
 
 const router = createBrowserRouter([
   {
@@ -24,12 +26,20 @@ const router = createBrowserRouter([
     element: <RoomDetail />
   },
   {
-    path: '/home/booking/',
+    path: '/home/booking',
     element: <Booking />
   },
   {
     path: '/home/confirm',
     element: <BookingDetails />
+  },
+  {
+    path: '/home/mybooking',
+    element: <PersonalManageBooking />
+  },
+  {
+    path: '/verify/:id',
+    element: <Verify />
   }
 ])
 
