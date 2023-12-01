@@ -26,7 +26,7 @@ function Services() {
     const [status, setStatus] = useState("Stop working");
     const [newDescription, setNewDescription] = useState("");
     const [content, setContent] = useState('');
-    const [user, setUser] = useState(JSON.parse(window.localStorage.getItem("user")));
+    const [user, setUser] = useState(JSON.parse(window.localStorage.getItem("admin")));
     const [notification, setNotification] = useState("hidden");
     const [textNotification, setTextNotification] = useState('');
 

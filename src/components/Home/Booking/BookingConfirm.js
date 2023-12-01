@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import HeaderBooking from './HeaderBooking';
 import FooterBooking from './FooterBooking';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 function BookingConfirm() {
     const currentYear = new Date().getFullYear();
@@ -22,6 +24,7 @@ function BookingConfirm() {
     const [idUser,setIdUser] = useState(null);
     const [voucher,setVoucher] = useState(null)
     const [error, setError] = useState('')
+    const navigate = useNavigate();
     const options = {
         weekday: 'short',
         month: 'short',
@@ -89,6 +92,7 @@ function BookingConfirm() {
                         })
                     })
                 }
+                navigate('/home/mybooking/')
             }
         }
         

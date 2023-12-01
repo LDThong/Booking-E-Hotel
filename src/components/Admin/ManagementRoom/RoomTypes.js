@@ -30,7 +30,7 @@ function ManagementRoom() {
     const [textNotification, setTextNotification] = useState('');
     const date = new Date().toLocaleString();
     const [progress, setProgress] = useState(0);
-    const [user, setUser] = useState(JSON.parse(window.localStorage.getItem("user")));
+    const [user, setUser] = useState(JSON.parse(window.localStorage.getItem("admin")));
     const [infoRoom, setInfoRoom] = useState(null);
     const [tableRoom, setTableRoom] = useState("hidden");
     const [roomTypeDetail, setRoomTypeDetail] = useState('');

@@ -23,7 +23,7 @@ export default function Verify() {
                 status: 'Verified',
             })
             if (res.status === 200) {
-                navigate('/')
+                navigate('/login')
             }
         }else{
             window.alert('Wrong verify code.')

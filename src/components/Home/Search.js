@@ -33,10 +33,10 @@ export default function Search() {
         }
     }
     const toDate = (string) =>{
-        return new Date(string)
+        return new Date(string).getTime();
     }
 
-    // console.log(checkInDate);
+    console.log(toDate(checkInDate));
     const handleSearch = () =>{
         const currentDate = new Date(new Date().toLocaleDateString('en-US', {
             year: 'numeric',
@@ -51,9 +51,10 @@ export default function Search() {
         }else if(adult < 0 || adult === null){
             window.alert(`Can't book without adult`);
         }else{
-            const a = dataBooking?.filter(item=>toDate(item.checkin) >= checkInDate && toDate(item.checkin) < checkOutDate || 
-            toDate(item.checkout) > checkInDate && toDate(item.checkout) <= checkOutDate || toDate(item.checkin) < checkInDate && toDate(item.checkout) > checkOutDate)
+            const a = dataBooking?.filter(item=>toDate(item.checkin) >= toDate(checkInDate) && toDate(item.checkin) < toDate(checkOutDate) || 
+            toDate(item.checkout) > toDate(checkInDate) && toDate(item.checkout) <= toDate(checkOutDate) || toDate(item.checkin) < toDate(checkInDate) && toDate(item.checkout) > toDate(checkOutDate))
             const bookingIds = a.map(item=>item.id);
+            console.log(a);
             const matchingBooking = roomHasBooking?.filter(item=> bookingIds.includes(item.bookingsId));
             const quantityMap = new Map();
             matchingBooking?.forEach(item => {
@@ -76,6 +77,7 @@ export default function Search() {
                 const newQuatity = roomType.quantity - (matchingRoomHasBooking ? matchingRoomHasBooking.quantity : 0)
                 return {...roomType, avalableQuantity: newQuatity};
             })
+
             setSearchData(newArray);
             const checkInAndOut = {
                 checkin: checkInDate.toISOString().split('T')[0],
@@ -87,7 +89,7 @@ export default function Search() {
             }
             window.localStorage.setItem('checkin',JSON.stringify(checkInAndOut))
             window.localStorage.setItem('people',JSON.stringify(people))
-            navigate('/home/booking')
+            // navigate('/home/booking')
         }
     }
     useEffect(()=>{

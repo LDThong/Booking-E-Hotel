@@ -23,7 +23,7 @@ function ManagementCustomer() {
     const [error, setError] = useState("hidden");
     const [content, setContent] = useState('');
     const [textNotification, setTextNotification] = useState('');
-    const [user, setUser] = useState(JSON.parse(window.localStorage.getItem("user")));
+    const [user, setUser] = useState(JSON.parse(window.localStorage.getItem("admin")));
     const [status, setStatus] = useState("All");
 
     const getDataUser = async () => {
