@@ -89,7 +89,7 @@ export default function Search() {
             }
             window.localStorage.setItem('checkin',JSON.stringify(checkInAndOut))
             window.localStorage.setItem('people',JSON.stringify(people))
-            // navigate('/home/booking')
+            navigate('/home/booking')
         }
     }
     useEffect(()=>{
