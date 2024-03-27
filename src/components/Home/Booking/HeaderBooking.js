@@ -5,7 +5,7 @@ import {FaCheck} from 'react-icons/fa';
 function HeaderBooking() {
   return (
     <div className='lg:w-[1240px] lg:mx-auto'>
-        <div className='flex flex-col justify-center items-center gap-[30px] my-[30px]'>
+        <div className='flex flex-col justify-center items-center gap-[30px] py-[30px]'>
             <Link to={'/'}>
                 <img src='/images/logo-e-hotel.png'></img>
             </Link>

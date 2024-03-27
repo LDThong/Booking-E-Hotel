@@ -260,8 +260,7 @@ function Booking() {
                 <p>loading...</p>
               )}
             </div>
-            <div className="fixed right-[8.5%] w-[13%] text-center">
-              
+            <div className="fixed right-[7%] w-[13%] text-center">
                 <button className="mt-[10px] p-[5px_22px_5px_22px] bg-gradient-to-b from-[#ad9d83] to-[#7F7159] rounded-[2px] text-[#fff] font-medium"
                   onClick={handleBooking}
                 >
