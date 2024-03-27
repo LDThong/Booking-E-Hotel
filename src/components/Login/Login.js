@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {TfiFacebook, TfiEmail} from 'react-icons/tfi';
 import {IoLogoGoogleplus} from 'react-icons/io';
-import {FaLinkedinIn, FaRegUser} from 'react-icons/fa6';
+import {FaLinkedinIn, FaRegUser, FaHotel } from 'react-icons/fa6';
 import { Link, useNavigate } from 'react-router-dom';
 import {PiLockBold} from 'react-icons/pi';
 import {GiStabbedNote} from 'react-icons/gi';
@@ -59,13 +59,21 @@ function Login() {
   return (
     <div className='lg:flex lg:h-screen lg:p-[20px]
         sm:max-lg:flex sm:max-lg:h-[800px] sm:max-lg:p-[25px]'>
-        <div className='lg:w-[65%] lg:h-full lg:bg-[#fff] lg:rounded-tl-[15px] lg:rounded-bl-[15px]
+        <div className='lg:relative lg:w-[65%] lg:h-full lg:bg-[#fff] lg:rounded-tl-[15px] lg:rounded-bl-[15px]
             max-sm:px-[15px]
             sm:max-lg:w-[70%] sm:max-lg:h-full sm:max-lg:rounded-tl-[25px] sm:max-lg:rounded-bl-[25px] sm:max-lg:bg-[#fff]'>
             <div className='lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-[30px] lg:h-full
                 max-sm:bg-[#fff] max-sm:rounded-[15px] max-sm:mt-[100px]
                 sm:max-lg:flex sm:max-lg:flex-col sm:max-lg:items-center sm:max-lg:justify-evenly sm:max-lg:h-full
                 '>
+                <Link to={'/'}
+                    className='absolute lg:top-[10px] lg:left-[10px] flex items-center gap-[5px] 
+                    bg-[#A3258E] text-[#fff] p-[5px_15px] rounded-[25px] font-bold
+                    max-sm:top-[15px] max-sm:left-[15px]'
+                >
+                    <FaHotel />
+                    Home Page
+                </Link>
                 <div className='flex flex-col lg:gap-[25px]
                     max-sm:items-center max-sm:mt-[30px] max-sm:relative max-sm:pt-[50px] max-sm:gap-[10px]
                     sm:max-lg:gap-[15px] sm:max-lg:items-center'>

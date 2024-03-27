@@ -44,7 +44,7 @@ export default function Verify() {
         <div className='flex flex-col items-center gap-6 mx-auto w-6/12 h-fit bg-white p-4'>
             <div className='flex'>
                 <label className='mt-2 mr-4'>Your verify code: </label>
-                <input className='w-4/12 h-10 border-[2px] border-gray-300 pb-[5px]' onChange={e=>setVerifyCode(e.target.value)}></input>
+                <input className='w-4/12 h-10 border-[2px] border-gray-300 p-[5px]' onChange={e=>setVerifyCode(e.target.value)}></input>
             </div>
             <button type='button' onClick={handleVerify} className='p-2 bg-green-200 rounded-3xl cursor-pointer'>Verify</button>
         </div>

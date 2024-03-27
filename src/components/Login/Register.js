@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef  } from 'react';
 import {TfiFacebook, TfiEmail} from 'react-icons/tfi';
 import {IoLogoGoogleplus} from 'react-icons/io';
-import {FaLinkedinIn, FaRegUser} from 'react-icons/fa6';
+import {FaLinkedinIn, FaRegUser, FaHotel} from 'react-icons/fa6';
 import { Link, useNavigate } from 'react-router-dom';
 import {PiLockBold} from 'react-icons/pi';
 import {GiStabbedNote} from 'react-icons/gi';
@@ -94,7 +94,7 @@ function Register() {
                                 user_name: usernameUS,
                                 verifyCode: randomCode,
                                 user_email: emailUS,
-                                verifyURL: `http://localhost:3000/verify/${response.data.id}`
+                                verifyURL: `https://booking-e-hotel.vercel.app/verify/${response.data.id}`
                             }
                         });
                         if (res.status === 200) {
@@ -118,12 +118,22 @@ function Register() {
 
     const Error = ` ${error}`;
 
-  return (
-    <div className='lg:flex lg:h-screen lg:p-[20px]
-        sm:max-lg:flex sm:max-lg:h-[800px] sm:max-lg:p-[25px]'>
-        <div className='lg:block lg:w-[35%] lg:bg-[#A3258E] lg:rounded-bl-[25px] lg:rounded-tl-[25px]
+return (
+    <div className='relative lg:flex h-screen lg:p-[20px]
+        sm:max-lg:flex sm:max-lg:h-[800px] sm:max-lg:p-[25px]
+        max-sm:pt-[130px]'>
+            <Link to={'/'}
+                className='absolute lg:top-[35px] lg:left-[35px] flex items-center gap-[5px] 
+                    bg-[#fff] text-[#A3258E] p-[5px_15px] rounded-[25px] font-bold z-[1]
+                    max-sm:top-[15px] max-sm:left-[15px]'
+            >
+                <FaHotel />
+                Home Page
+            </Link>
+        <div className='relative lg:block lg:w-[35%] lg:bg-[#A3258E] lg:rounded-bl-[25px] lg:rounded-tl-[25px]
             max-sm:hidden
             sm:max-lg:block sm:max-lg:bg-[#A3258E] sm:max-lg:w-[30%] sm:max-lg:text-[#fff] sm:max-lg:rounded-bl-[15px] sm:max-lg:rounded-tl-[15px]'>
+            
             <div className='flex flex-col items-center lg:justify-center gap-[20px] h-full sm:max-lg:justify-evenly'>
                 <div className='text-center sm:max-lg:px-[10px]'>
                     <h1 className='lg:text-[#fff] lg:text-[45px] font-bold 
@@ -146,11 +156,11 @@ function Register() {
             max-sm:px-[15px]
             sm:max-lg:w-[70%] sm:max-lg:h-full sm:max-lg:rounded-tr-[25px] sm:max-lg:rounded-br-[25px] sm:max-lg:bg-[#fff]'>
             <div className='lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-[30px] lg:h-full
-                max-sm:bg-[#fff] max-sm:rounded-[15px] max-sm:mt-[100px]
+                max-sm:bg-[#fff] max-sm:rounded-[15px]
                 sm:max-lg:flex sm:max-lg:flex-col sm:max-lg:items-center sm:max-lg:justify-evenly sm:max-lg:h-full
                 '>
                 <div className='flex flex-col lg:gap-[25px]
-                    max-sm:items-center max-sm:mt-[30px] max-sm:relative max-sm:pt-[50px] max-sm:gap-[10px]
+                    max-sm:items-center max-sm:relative max-sm:pt-[50px] max-sm:gap-[10px]
                     sm:max-lg:gap-[15px]'>
                     <GiStabbedNote className='lg:hidden max-sm:block sm:max-lg:hidden max-sm:text-purple-600 max-sm:text-[100px] 
                         max-sm:absolute max-sm:top-[-65px]'/>

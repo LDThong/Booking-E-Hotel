@@ -41,7 +41,7 @@ function Header({user, handleLogout}) {
     },[user])
   return (
     <div className=''>
-        <div className='w-full fixed z-1000 top-0'>
+        <div className='w-full fixed z-[10] top-0'>
             {
                 user ? (
                     <div className='bg-[#f1eee6cc] lg:block max-sm:hidden sm:max-lg:hidden lg:flex lg:justify-end lg:items-center lg:gap-[25px] lg:border-b lg:p-[10px_25px_10px_0] font-semibold'>
@@ -123,7 +123,7 @@ function Header({user, handleLogout}) {
                             </div>
                             <nav className={navBars}>
                                 <div className='flex flex-col items-center gap-[50px] w-[100%] mt-[70px] pt-[30px] h-screen'>
-                                    <Link>
+                                    <Link to={'/'}>
                                         <span className='text-[#a3258e] text-[20px] font-medium'>HOME</span>
                                     </Link>
                                     <Link>
